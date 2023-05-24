@@ -4,19 +4,19 @@ import { iHoover } from './iHoover';
 
 
 describe('iHoover functionnality', () => {
-    it('turns orientation to the right', () => {
+    it('should turn orientation to the right', () => {
         const robotTest = new iHoover(5, 5, Orientation.N);
         robotTest.turnRight();
 
         expect(robotTest.getCurrentPosition().orientation).toEqual(Orientation.E);
     })
-    it('turns orientation to the left', () => {
+    it('should turn orientation to the left', () => {
         const robotTest = new iHoover(5, 5, Orientation.E);
         robotTest.turnLeft();
 
         expect(robotTest.getCurrentPosition().orientation).toEqual(Orientation.N);
     })
-    it('moves forward in the right direction', () => {
+    it('should move forward in the right direction', () => {
         const robotTest = new iHoover(5, 5, Orientation.N);
         robotTest.moveForward();
         

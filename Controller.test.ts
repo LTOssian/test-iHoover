@@ -16,10 +16,10 @@ describe ('Program initalization', () => {
     })
 
     it('reads the instructions and send the robot on its way', () => {
-        const program = new Controller(2, 2, 0, 0, Orientation.N);
-        program.setInstructions('DA');
+        const program = new Controller(10, 10, 5, 5, Orientation.N);
+        program.setInstructions('DADADADAA');
         program.launch();
 
-        expect(program.getRobotPosition()).toEqual({x: 1, y: 0, orientation: Orientation.E})
+        expect(program.getRobotPosition()).toEqual({x: 5, y: 6, orientation: Orientation.N})
     })
 });

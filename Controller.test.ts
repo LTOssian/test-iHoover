@@ -2,24 +2,35 @@ import { describe, expect, it } from 'vitest'
 import { Controller } from './Controller';
 import { Orientation } from './iHoover';
 
-describe ('Program initalization', () => {
-    it('sets up the robot in the room', () => {
-        const program = new Controller(2, 2, 0, 0, Orientation.N);
+describe('Controller', () =>
+{    describe ('Program initalization', () => {
+        it('should set up the robot in the room', () => {
+            const program = new Controller(2, 2, 0, 0, Orientation.N);
 
-        expect(program.getRobotPosition()).toEqual({x: 0, y: 0, orientation: Orientation.N});
-    }) 
+            expect(program.getRobotPosition()).toEqual({x: 0, y: 0, orientation: Orientation.N});
+        }) 
 
-    it('checks if the robot is placed within the room', () => {
-        const program = new Controller(2, 2, 3, 3, Orientation.N);
-        
-        expect(program).toThrowError(Error);
-    })
+        it('should throw an error if the robot is placed outsite the room', () => {
+            const program = new Controller(2, 2, 3, 3, Orientation.N);
+            
+            expect(program).toThrow(Error);
+        })
+    });
 
-    it('reads the instructions and send the robot on its way', () => {
-        const program = new Controller(10, 10, 5, 5, Orientation.N);
-        program.setInstructions('DADADADAA');
-        program.launch();
+    describe('Program instructions', () => {
+        it('should read the instructions and move the robot', () => {
+            const program = new Controller(10, 10, 5, 5, Orientation.N);
+            program.setInstructions('DADADADAA');
+            program.launch();
 
-        expect(program.getRobotPosition()).toEqual({x: 5, y: 6, orientation: Orientation.N})
+            expect(program.getRobotPosition()).toEqual({x: 5, y: 6, orientation: Orientation.N})
+        })
+
+        it('should throw an error if the instructions bring the robot out of the room', () => {
+            const program = new Controller(2, 2, 0, 0, Orientation.N);
+            program.setInstructions('AAA');
+            
+            expect(() => program.launch()).toThrow(Error);
+        })
     })
 });

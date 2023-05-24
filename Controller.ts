@@ -19,11 +19,11 @@ export class Controller {
             const robotPos = this.robot.getCurrentPosition()
             this.room.getGrid()[roomDims.y - 1 - robotPos.y][robotPos.x] = 1;
         } catch(e) {
-            console.error(e);
+            console.error(e)
         }
     }
 
-    private checkRobotPosition(): boolean {
+    private checkRobotPosition() {
         const roomDims = this.room.getRoomDimensions();
         const maxY = roomDims.y - 1;
         const maxX = roomDims.x - 1;
@@ -36,11 +36,7 @@ export class Controller {
             robotPos.y < 0 || 
             robotPos.y > maxY)
 
-        if (outOfRoom) 
-        {
-            throw new Error("iHoover cannot atteign this position in the room.");
-        }
-        return true;
+        if (outOfRoom) throw new Error("iHoover cannot atteign this position in the room.");
     }
 
     getRobotPosition() {
@@ -57,6 +53,7 @@ export class Controller {
 
     launch() {
         this.instructions.forEach(instruction => {
+            this.checkRobotPosition();
             switch(instruction) {
                 case 'D':
                     this.robot.turnRight();

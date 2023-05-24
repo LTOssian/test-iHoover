@@ -1,5 +1,5 @@
 import { assert, describe, expect, it } from 'vitest'
-import { Room } from "./iHoover";
+import { Room } from './Room';
 
 describe('Room flow', () => {
     it('sets up the grid vertically according to dimensions input', () => {

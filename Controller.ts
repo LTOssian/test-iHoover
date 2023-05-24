@@ -53,7 +53,6 @@ export class Controller {
 
     launch() {
         this.instructions.forEach(instruction => {
-            this.checkRobotPosition();
             switch(instruction) {
                 case 'D':
                     this.robot.turnRight();
@@ -61,8 +60,9 @@ export class Controller {
                 case 'G':
                     this.robot.turnLeft();
                     break;
-                case 'A':
+                case 'A':            
                     this.robot.moveForward();
+                    this.checkRobotPosition();
                     break;
             }
         });

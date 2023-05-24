@@ -1,15 +1,13 @@
 # iHoover
-
-installation :
+Time : approximately 4 to 5 hours over a day
 
 `git clone https://github.com/LTOssian/test-iHoover.git`
-`npm i`
 
-run tests :
-`npx vitest`
+installation : `npm i`
 
-run the program :
-`npm start`
+run tests : `npx vitest`
+
+run the program : `npm start`
 
 Technologies used :
 

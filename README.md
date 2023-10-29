@@ -15,8 +15,20 @@ Build an application to input a room's dimensions, a vacuum cleaner's initial po
 ## Usage and testing 
 
 run tests : `npm test`
+
+You can use the unit tests describing the Controller class to see the application in action. 
+
 run the program : `npm start`
-You can use the unit tests describing the Controller class to see the application in action. Or you can start the program and enter your own credentials.
+
+Start the program and enter your own credentials.
+
+### For example : 
+
+- Room's dimensions : x=10 y=10
+
+- Vacuum initial position : x=5 y=5 orientation=N 
+
+- Instructions : DADADADAA
 
 ## Technologies used :
 

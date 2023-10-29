@@ -16,7 +16,7 @@ Build an application to input a room's dimensions, a vacuum cleaner's initial po
 
 run tests : `npm test`
 
-You can use the unit tests describing the Controller class to see the application in action. 
+You can use the unit tests describing the Controller class in `Controller.test.ts` to see the application in action. 
 
 run the program : `npm start`
 

@@ -70,7 +70,7 @@ async function getInputs(): Promise<UserInputs | null> {
             throw new Error('Invalid Orientation. Must one of N, E, W, S');
         }
 
-        const instructions = await (await prompter.prompt('Enter the robot\'s instructions to perform (list of [D,G,A]): ')).toUpperCase();
+        const instructions = (await prompter.prompt('Enter the robot\'s instructions to perform (list of [D,G,A]): ')).toUpperCase();
         if (!(/^[DGA]+$/.test(instructions))) {
             throw new Error('Invalid instructions. Only commands available are D, G, A');
         }

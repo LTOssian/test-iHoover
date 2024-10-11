@@ -18,12 +18,21 @@ describe('Controller', () =>
     });
 
     describe('Program instructions', () => {
+        it('should correctly set instructions as array of instructions', () => {
+          const program = new Controller(10, 10, 5, 5, Orientation.N);
+          const instructions = 'ADG';
+          const expectedInstructions = ["A", "D", "G"];
+          program.setInstructions(instructions);
+          
+          expect(program.getInstructions()).toEqual(expectedInstructions);
+      }) 
+
         it('should read the instructions and move the robot', () => {
             const program = new Controller(10, 10, 5, 5, Orientation.N);
-            program.setInstructions('DADADADAA');
+            program.setInstructions('DADADADAAG');
             program.launch();
 
-            expect(program.getRobotPosition()).toEqual({x: 5, y: 6, orientation: Orientation.N})
+            expect(program.getRobotPosition()).toEqual({x: 5, y: 6, orientation: Orientation.W})
         })
 
         it('should throw an error if the instructions bring the robot out of the room', () => {

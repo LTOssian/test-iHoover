@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { Orientation } from './iHoover';
 import { iHoover } from './iHoover';
 
-
+// TODO: Improve coverage and add Theory InlineData
 describe('iHoover functionnality', () => {
     it('should turn orientation to the right', () => {
         const robotTest = new iHoover(5, 5, Orientation.N);

@@ -66,12 +66,12 @@ export class iHoover {
             case "S":
                 this.coord_y -= 1;
                 break;
-
             case "E":
                 this.coord_x += 1;
                 break;
             case "W":
                 this.coord_x -= 1;
+                break;
         }
     }
 }
